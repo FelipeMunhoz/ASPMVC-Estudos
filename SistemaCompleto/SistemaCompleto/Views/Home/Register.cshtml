@@ -1,0 +1,50 @@
+﻿@model SistemaCompleto.Models.User
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@using (Html.BeginForm("Register", "Home", FormMethod.Post)) {
+
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+
+
+    <div>
+        <table align="center" height="75">
+            <tr>
+                <td>@Html.LabelFor(m => m.username)</td>
+                <td>
+                    @Html.EditorFor(m => m.username)
+                    <br />
+                    @Html.ValidationMessageFor(m => m.username, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.password)</td>
+                <td>
+                    @Html.PasswordFor(m => m.password)
+                    <br />
+                    @Html.ValidationMessageFor(m => m.password, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+        </table>
+
+        <table align="center" height="60">
+            <tr>
+                <td><input type="submit" value="Cadastrar" /></td>
+            </tr>
+            <tr>
+                <td>@Html.ActionLink("Login", "Index")</td>
+            </tr>
+        </table>
+
+    </div>
+
+}
+
+@section Scripts{
+    @Scripts.Render(@"~/bundles/jqueryval")
+}
+

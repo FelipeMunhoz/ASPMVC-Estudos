@@ -1,0 +1,19 @@
+﻿@model SistemaCompleto.Models.User
+@{
+    ViewBag.Title = "Informação";
+}
+
+<h2>Informação</h2>
+
+<div>
+    <div>
+        <b>@Html.LabelFor(m => m.id) </b>
+        @Session["usuarioLogadoID"]
+    </div>
+
+    <div>
+        <b>@Html.LabelFor(m => m.username) </b>
+        @Session["nomeUsuarioLogado"]
+    </div>
+</div>
+
